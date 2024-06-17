@@ -8,3 +8,11 @@ Scripts I wrote to batch process some microfiche scans. I thoroughly recommend [
 ## Video
 
 Scripts for comparing video files.
+
+## git-info
+
+git script that dumps info about the repo to stdout in human-readable form.
+
+## git-seek
+
+git script that checks out a partial branch name.
