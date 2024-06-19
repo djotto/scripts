@@ -9,10 +9,11 @@ Scripts I wrote to batch process some microfiche scans. I thoroughly recommend [
 
 Scripts for comparing video files.
 
-## git-info
+## git-scripts
 
-git script that dumps info about the repo to stdout in human-readable form.
-
-## git-seek
-
-git script that checks out a partial branch name.
+<dl>
+  <dt>git-info</dt>
+  <dd>echoes information about the current repo to stdout in a human-readable form.</dd>
+  <dt>git-seek</dt>
+  <dd>checks out a partial branch name (useful when the branch name is based on a ticket number)</dd>
+</dl>
