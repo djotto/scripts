@@ -7,15 +7,16 @@
 #
 # Based on discussion at http://kerneltrap.org/mailarchive/git/2007/11/12/406496
 
-pushd . >/dev/null
+# 2024-06-19: replaced recursive directory search with $git_root, djotto
 
-# Find base of git directory
-while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
+# Find root of git repo
+git_root=$(git rev-parse --show-toplevel 2>/dev/null)
 
-# Show various information about this git directory
-if [ -d .git ]; then
-  echo "== Configuration (.git/config)"
-  cat .git/config
+if [ -n "$git_root" ]; then
+  config_file="$git_root/.git/config"
+
+  echo "== Configuration ($config_file)"
+  cat "$config_file"
   echo
 
   echo "== Remote URLs:"
@@ -34,9 +35,8 @@ if [ -d .git ]; then
   git --no-pager log --max-count=1
   echo
 
-  echo "Type 'git log' for more commits, or 'git show' for full commit details."
+  echo "Type 'git lg' for more commits, or 'git show' for full commit details."
 else
   echo "Not a git repository."
 fi
 
-popd >/dev/null
