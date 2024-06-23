@@ -10,7 +10,7 @@ fi
 matching_branches=$(git branch --list "*$1*" | sed 's/^[* ] //g')
 
 # Count the number of matching branches
-num_matches=$(echo "$matching_branches" | grep -v '^$' | wc -l)
+num_matches=$(echo "$matching_branches" | grep -c '^$')
 
 if [ "$num_matches" -eq 0 ]; then
     echo "No local branch found containing '$1'."
