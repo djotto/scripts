@@ -7,7 +7,8 @@
 #
 # Based on discussion at http://kerneltrap.org/mailarchive/git/2007/11/12/406496
 
-# 2024-06-19: replaced recursive directory search with $git_root, djotto
+# 2024-06-19 replaced recursive directory search with $git_root, djotto
+# 2024-06-23 exit with error if not in a git repo, djotto
 
 # Find root of git repo
 git_root=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -38,5 +39,6 @@ if [ -n "$git_root" ]; then
   echo "Type 'git lg' for more commits, or 'git show' for full commit details."
 else
   echo "Not a git repository."
+  exit 1
 fi
 
