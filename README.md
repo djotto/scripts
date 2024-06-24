@@ -17,3 +17,7 @@ Scripts for comparing video files.
   <dt>git-seek</dt>
   <dd>checks out a partial branch name (useful when the branch name is based on a ticket number)</dd>
 </dl>
+
+## misc
+
+Scripts that don't fit anywhere else.
