@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+## Check for a local git branch matching a given pattern and switch to one if found
+
 # Check if an argument was provided
 if [ -z "$1" ]; then
   echo "Usage: git seek <pattern>"
