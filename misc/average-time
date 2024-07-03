@@ -5,8 +5,8 @@
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Run a command under time multiple times, and print the average result"
     echo
-    echo "Usage: $(basename $0) <iterations> <command>"
-    echo "Example: $(basename $0) 1000 'git info'"
+    echo "Usage: $(basename "$0") <iterations> <command>"
+    echo "Example: $(basename "$0") 1000 'git info'"
     exit 1
 fi
 
