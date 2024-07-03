@@ -25,11 +25,11 @@ if [ -n "$git_root" ]; then
   echo
 
   echo "== Remote Branches: "
-  git branch -r
+  git branch -vv -r
   echo
 
   echo "== Local Branches:"
-  git branch
+  git branch -vv
   echo
 
   echo "== Most Recent Commit"
@@ -41,4 +41,3 @@ else
   echo "Not a git repository."
   exit 1
 fi
-
