@@ -9,6 +9,7 @@
 
 # 2024-06-19 replaced recursive directory search with $git_root, djotto
 # 2024-06-23 exit with error if not in a git repo, djotto
+# 2024-07-03 add -vv to `git branch` calls, djotto
 
 # Find root of git repo
 git_root=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -25,11 +26,11 @@ if [ -n "$git_root" ]; then
   echo
 
   echo "== Remote Branches: "
-  git branch -r
+  git branch -vv -r
   echo
 
   echo "== Local Branches:"
-  git branch
+  git branch -vv
   echo
 
   echo "== Most Recent Commit"
@@ -41,4 +42,3 @@ else
   echo "Not a git repository."
   exit 1
 fi
-
