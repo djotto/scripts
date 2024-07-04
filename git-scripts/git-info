@@ -10,30 +10,29 @@
 # 2024-06-19 replaced recursive directory search with $git_root, djotto
 # 2024-06-23 exit with error if not in a git repo, djotto
 # 2024-07-03 add -vv to `git branch` calls, djotto
+# 2024-07-04 replace spooling config file with calling 'git config'
 
 # Find root of git repo
 git_root=$(git rev-parse --show-toplevel 2>/dev/null)
 
 if [ -n "$git_root" ]; then
-  config_file="$git_root/.git/config"
-
-  echo "== Configuration ($config_file)"
-  cat "$config_file"
+  echo "## Local configuration"
+  git config --local --list
   echo
 
-  echo "== Remote URLs:"
+  echo "## Remote URLs:"
   git remote -v
   echo
 
-  echo "== Remote Branches: "
+  echo "## Remote branches: "
   git branch -vv -r
   echo
 
-  echo "== Local Branches:"
+  echo "## Local branches:"
   git branch -vv
   echo
 
-  echo "== Most Recent Commit"
+  echo "## Most recent commit"
   git --no-pager log --max-count=1
   echo
 
